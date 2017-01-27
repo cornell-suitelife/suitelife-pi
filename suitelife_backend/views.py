@@ -11,7 +11,7 @@ def home():
 @socketio.on('message', namespace='/')
 def test_message(message):
     message['data']['id'] = app.MESSAGE_NUMBER
-    emit('message', message)
+    emit('message', message, broadcast = True)
     app.MESSAGE_NUMBER += 1
     print message
 
